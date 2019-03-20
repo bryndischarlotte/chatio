@@ -20,16 +20,18 @@ class LoginWindow extends React.Component {
         socket.emit('adduser', nickname, (resp) => {
             if (resp === true) {
                 socket.emit('users');
+                socket.emit('rooms');
                 this.setState({ redirect: true });
             }
             else {
                 console.log("doesn't work");
             }
-        })
+        });
         this.setState({ nickname: '' });
     }    
     render() {
         const { nickname } = this.state;
+        console.log(nickname);
         return (
             <div id="login-window">
                 <div className="form-group" id="login-form">
