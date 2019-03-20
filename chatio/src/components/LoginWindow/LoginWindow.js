@@ -35,9 +35,12 @@ class LoginWindow extends React.Component {
                 <div className="form-group" id="login-form">
                     <form>
                         <label className="control-label" htmlFor="login-name">PICK A USERNAME:</label>
-                        <input type="text" name="login" id="login-name" className="form-control" value={ nickname } onChange={e => this.setState({ nickname: e.target.value })}/>
+                        <input type="text" name="login-input" id="login-name" className="form-control" value={ nickname }
+                        onChange={e => this.setState({ nickname: e.target.value })}/>
                     </form>
-                    <button type="button" className="btn btn-primary" onClick={() => this.setNickname(nickname)}>SUBMIT</button>
+                    <button type="button" className="btn btn-primary" onClick={() => this.setNickname(nickname)}>
+                        SUBMIT
+                    </button>
                     { this.renderRedirect() }
                 </div>
             </div>
