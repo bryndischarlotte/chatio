@@ -1,0 +1,29 @@
+/* CSS styles */
+body {
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+#login-window {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    border: solid;
+    border-width: thin;
+    margin: 120px;
+    height: 300px;
+    width: 600px;
+}
+
+#login-form {
+    width: 80%;
+}
+
+#login-form button {
+    float: right;
+    margin-top: 20px;
+    width: 100%;
+}

@@ -12,7 +12,7 @@ class App extends Component {
             <div>
                 {console.log(socket)}
                 <Switch>
-                    <Route exact path="/" component={LoginWindow} />
+                    <Route exact path="/" component={ LoginWindow } />
                 </Switch>
             </div>
         );
