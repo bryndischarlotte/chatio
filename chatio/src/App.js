@@ -2,17 +2,10 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { socket } from './services/socketService';
 import LoginWindow from './components/LoginWindow/LoginWindow';
+import Lobby from './components/Lobby/Lobby';
 
 class App extends Component {
     componentDidMount() {
-        socket.emit('adduser', "username2", (inp) => {
-            if (inp === true) {
-                console.log("works");
-            }
-            else {
-                console.log("doesn't work");
-            }
-        })
         socket.emit('users');
         socket.on('userlist', userList => {
             this.setState({users: userList});
@@ -31,6 +24,7 @@ class App extends Component {
                 {console.log(this.state)}
                 <Switch>
                     <Route exact path="/" component={ LoginWindow } />
+                    <Route exact path="/lobby" component={ Lobby } />
                 </Switch>
             </div>
         );
