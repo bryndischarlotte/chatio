@@ -66,29 +66,27 @@ class Lobby extends React.Component {
         console.log(newRoom);
         return (
             <div>
-                {/* {console.log(this.state.rooms)} */}
-                {/* {console.log(this.state.users)} */}
                 <RoomView rooms={ rooms } />
                 <button type="button" className="btn btn-success" onClick={() => this.toggleModal(true)} >Create Room</button>
                 <Modal visible={ showModal }>
                     <div className="modal-header">
-                        <h5 className="modal-title">Create new room</h5>
+                        <h5 className="modal-title">CREATE NEW ROOM</h5>
                     </div>
                     <div className="modal-body">
-                        <label className="control-label" htmlFor="login-name">ROOM NAME:</label>
-                        <input type="text" name="name-of-room" id="room-name" className="form-control" value={ newRoom.roomName } 
-                        onChange={e => this.setState({ ...this.state, newRoom: { roomName: e.target.value, roomPass: newRoom.roomPass } })} />
-                        <label className="control-label" htmlFor="login-name">ROOM PASSWORD:</label>
-                        <input type="password" name="pass-of-room" id="room-pass" className="form-control" value={ newRoom.roomPass }
-                        onChange={e => this.setState({ ...this.state, newRoom: { roomName: newRoom.roomName, roomPass: e.target.value } })} />
+                        <label className="control-label" htmlFor="room-name">ROOM NAME:</label>
+                        <input type="text" name="name-of-room" id="room-name" className="form-control" value={newRoom.roomName}
+                            onChange={e => this.setState({ ...this.state, newRoom: { roomName: e.target.value, roomPass: newRoom.roomPass } })} />
+                        <label className="control-label" htmlFor="room-pass">ROOM PASSWORD:</label>
+                        <input type="text" name="pass-of-room" id="room-pass" className="form-control" value={newRoom.roomPass}
+                            onChange={e => this.setState({ ...this.state, newRoom: { roomName: newRoom.roomName, roomPass: e.target.value } })} />
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" onClick={() => this.toggleModal(false)}>
-                            Cancel
-                </button>
+                            CANCEL
+                        </button>
                         <button type="button" className="btn btn-primary" onClick={() => this.createNewRoom(newRoom)}>
-                            Submit
-                </button>
+                            SUBMIT
+                        </button>
                     </div>
                 </Modal>
             </div>
