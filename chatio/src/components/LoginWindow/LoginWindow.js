@@ -31,7 +31,6 @@ class LoginWindow extends React.Component {
     }    
     render() {
         const { nickname } = this.state;
-        console.log(nickname);
         return (
             <div id="login-window">
                 <div className="form-group" id="login-form">
