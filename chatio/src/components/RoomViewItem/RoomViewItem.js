@@ -59,7 +59,7 @@ class RoomViewItem extends React.Component {
     }
     renderRedirect = () => {
         if (this.state.redirect === true) {
-            return <Redirect to='/chatroom' />
+            return <Redirect to={ { pathname: '/chatroom', state: this.props } }/>
         }
       }
     render() {
