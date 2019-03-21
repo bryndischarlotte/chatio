@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from 'react-bootstrap4-modal';
+import { Redirect } from 'react-router-dom';
 import { socket } from '../../services/socketService';
 
 class RoomViewItem extends React.Component {
@@ -7,7 +8,8 @@ class RoomViewItem extends React.Component {
         super(props);
         this.state = {
             password: '',
-            showModal: false
+            showModal: false,
+            redirect: false
         };
     }
     toggleModal(inp) {
@@ -47,6 +49,7 @@ class RoomViewItem extends React.Component {
             if (resp === true) {
                 socket.emit('rooms');
                 this.toggleModal(false);
+                this.setState({ redirect: true })
             }
             else {
                 console.log('Did not work');
@@ -54,6 +57,11 @@ class RoomViewItem extends React.Component {
         });
         this.setState({ ...this.state, password: '' });
     }
+    renderRedirect = () => {
+        if (this.state.redirect === true) {
+            return <Redirect to='/chatroom' />
+        }
+      }
     render() {
         const { room, name } = this.props;
         const { password, showModal } = this.state;
@@ -77,6 +85,7 @@ class RoomViewItem extends React.Component {
                         <button type="button" className="btn btn-secondary" onClick={() => this.toggleModal(false)}>
                             Cancel
                 </button>
+                        {this.renderRedirect()}
                         <button type="button" className="btn btn-primary" onClick={() => this.enterRoom(password, true)}>
                             Submit
                 </button>
